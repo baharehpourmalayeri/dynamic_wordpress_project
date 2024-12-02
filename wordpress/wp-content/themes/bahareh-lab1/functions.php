@@ -24,7 +24,10 @@
 
 
     function load_theme_styles() {
-        wp_enqueue_style('main-styles', get_stylesheet_uri());
+        wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
+        wp_enqueue_style('font', get_template_directory_uri() . '/css/font-awesome.css');
+        wp_enqueue_style('main', get_template_directory_uri() . '/css/style.css');
+        wp_enqueue_script('script', get_template_directory_uri() . '/js/script.js');
     }
     add_action('wp_enqueue_scripts', 'load_theme_styles');
 
