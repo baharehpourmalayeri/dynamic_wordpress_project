@@ -16,14 +16,37 @@
             <section>
                 <div class="container">
                     <div class="row">
-                    <?php
-                    if (have_posts()) :
-                        while (have_posts()) : the_post(); ?>
-                            <div><?php the_content(); ?></div>
-                        <?php endwhile; else : ?>
-                        <p>Inget innehåll hittades på denna sida.</p>
-                    <?php endif;
-                    ?>
+                        <div id="primary" class="col-xs-12 col-md-9">
+                            <?php
+                            if (have_posts()) :
+                                while (have_posts()) : the_post(); ?>
+                                    <article>
+                                        <img src="<?php the_post_thumbnail_url('785x523'); ?>" />
+                                        <h2 class="title">
+                                            <a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
+                                        </h2>
+                                        <ul class="meta">
+                                            <li>
+                                                <i class="fa fa-calendar"></i><?php echo the_date() ?>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-user"></i> <a href="forfattare.html" title="Inlägg av Anders Andersson"
+                                                    rel="author"><?php the_author() ?></a></a>
+                                            </li>
+                                            <li>
+                                                <i class="fa fa-tag"></i><?php echo the_category(', ') ?>
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            <?php echo the_content() ?>
+                                        </p>
+                                    </article>
+                                <?php endwhile;
+                            else : ?>
+                                <p>Inget innehåll hittades på denna sida.</p>
+                            <?php endif;
+                            ?>
+                        </div>
                     </div>
                 </div>
             </section>

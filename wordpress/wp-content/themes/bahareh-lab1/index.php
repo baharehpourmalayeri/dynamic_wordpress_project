@@ -24,7 +24,7 @@
 									<article>
 										<img src="<?php the_post_thumbnail_url('785x523'); ?>" />
 										<h2 class="title">
-											<a href="<?php the_permalink(); ?>"><?php echo get_the_title()?></a>
+											<a href="<?php the_permalink(); ?>"><?php echo get_the_title() ?></a>
 										</h2>
 										<ul class="meta">
 											<li>
@@ -32,14 +32,14 @@
 											</li>
 											<li>
 												<i class="fa fa-user"></i> <a href="forfattare.html" title="Inlägg av Anders Andersson"
-													rel="author"><?php the_author()?></a></a>
+													rel="author"><?php the_author() ?></a></a>
 											</li>
 											<li>
-												<i class="fa fa-tag"></i><?php echo the_category(', ')?>
+												<i class="fa fa-tag"></i><?php echo the_category(', ') ?>
 											</li>
 										</ul>
 										<p>
-										<?php echo the_excerpt() ?>
+											<?php echo the_excerpt() ?>
 										</p>
 									</article>
 								<?php endwhile;
@@ -53,10 +53,8 @@
 								<a class="page-numbers" href="">2</a>
 								<a class="next page-numbers" href="">Nästa</a>
 							</nav>
-
-
 						</div>
-
+						<?php get_sidebar(); ?>
 					</div>
 				</div>
 			</section>

@@ -17,14 +17,15 @@
                 <div class="container">
                     <div class="row">
                         <h1><?php echo get_the_title() ?></h1>
-                    <?php
-                    if (have_posts()) :
-                        while (have_posts()) : the_post(); ?>
-                            <div><?php the_content(); ?></div>
-                        <?php endwhile; else : ?>
-                        <p>Inget innehåll hittades på denna sida.</p>
-                    <?php endif;
-                    ?>
+                        <?php
+                        if (have_posts()) :
+                            while (have_posts()) : the_post(); ?>
+                                <div><?php the_content(); ?></div>
+                            <?php endwhile;
+                        else : ?>
+                            <p>Inget innehåll hittades på denna sida.</p>
+                        <?php endif;
+                        ?>
                     </div>
                 </div>
             </section>
