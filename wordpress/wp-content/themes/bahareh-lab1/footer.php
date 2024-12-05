@@ -4,25 +4,30 @@
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <h4><?php echo 'Kort om oss'; ?></h4>
                 <div>
-                    <p>
-                        <?php echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales mauris. Aliquam felis est, efficitur vel fringilla quis, vehicula quis ex.'; ?>
-                    </p>
-                    <p>
-                        <?php echo 'Phasellus tristique nunc in leo faucibus, a consequat nulla sagittis.'; ?>
-                    </p>
+                    <?php
+                    if (is_active_sidebar('footer_widget_area')) {
+                        dynamic_sidebar('footer_widget_area');
+                    } else {
+                        echo '<p>' . 'No content in footer widget.' . '</p>';
+                    }
+                    ?>
                 </div>
             </div>
 
+
             <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
-                <h4><?php echo 'Kontaktuppgifter'; ?></h4>
+                <h4>Kontaktuppgifter</h4>
                 <div>
-                    <p><strong><?php echo 'The Company'; ?></strong></p>
-                    <p><?php echo 'Gatgatan 1'; ?></p>
-                    <p><?php echo '123 45 Någonstans'; ?></p>
-                    <p><?php echo 'Tel: 0123456789'; ?></p>
-                    <p><?php echo 'E-post: '; ?><a href="mailto:info@thecompany.com"><?php echo 'info@thecompany.com'; ?></a></p>
+                    <?php
+                    if (is_active_sidebar('footer_contact_us_widget')) {
+                        dynamic_sidebar('footer_contact_us_widget');
+                    } else {
+                        echo '<p>' . 'No contact details available.' . '</p>';
+                    }
+                    ?>
                 </div>
             </div>
+
 
             <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
                 <h4>Social media</h4>
@@ -48,7 +53,7 @@
 
             <div class="row bottom">
                 <div class="col-xs-12">
-                    <p>Copyright &copy; <?php echo date('Y'); ?> <?php echo 'Grupp X'; ?></p>
+                    <p>Copyright &copy; <?php echo 'Grupp X'; ?>, <?php echo date('Y'); ?> </p>
                 </div>
             </div>
         </div>

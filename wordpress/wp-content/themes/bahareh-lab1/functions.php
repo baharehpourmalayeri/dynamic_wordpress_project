@@ -68,3 +68,31 @@ function mytheme_register_sidebars()
 
 add_action('widgets_init', 'mytheme_register_sidebars');
 
+function my_theme_widgets_init()
+{
+    register_sidebar(array(
+        'name'          => 'Footer Widget Area',
+        'id'            => 'footer_widget_area',
+        'before_widget' => '<div class="widget %2$s" id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ));
+    register_sidebar(array(
+        'name'          => 'Footer Contact Us Widget',
+        'id'            => 'footer_contact_us_widget',
+        'before_widget' => '<div class="widget %2$s" id="%1$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ));
+    register_sidebar(array(
+        'name'          => 'Footer Social Media Widget',
+        'id'            => 'footer_social_media_widget',
+        'before_widget' => '<div class="widget-social-media">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ));
+}
+add_action('widgets_init', 'my_theme_widgets_init');
