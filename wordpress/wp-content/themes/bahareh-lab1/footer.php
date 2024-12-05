@@ -46,10 +46,9 @@
                 </div>
             </div>
 
-            <!-- Footer Copyright -->
             <div class="row bottom">
                 <div class="col-xs-12">
-                    <p>Copyright &copy; <?php echo date('Y'); ?> <?php echo esc_html__('Grupp X', 'your-theme'); ?></p>
+                    <p>Copyright &copy; <?php echo date('Y'); ?> <?php echo 'Grupp X'; ?></p>
                 </div>
             </div>
         </div>
