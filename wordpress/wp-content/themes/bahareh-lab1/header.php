@@ -11,8 +11,8 @@
             <div class="col-sm-6 hidden-xs">
                 <form class="searchform" action="<?php echo home_url('/'); ?>" method="get">
                     <div>
-                        <label class="screen-reader-text" for="s"><?php echo 'Sök efter:'; ?></label> <!-- Skriver text -->
-                        <input type="text" name="s" id="s" value="" /> <!-- Vi lämnar fältet tomt, eftersom get_search_query() inte är tillgänglig -->
+                        <label class="screen-reader-text" for="s"><?php echo 'Sök efter:'; ?></label>
+                        <input type="text" name="s" id="s" value="" /> 
                         <input type="submit" value="Sök" />
                     </div>
                 </form>

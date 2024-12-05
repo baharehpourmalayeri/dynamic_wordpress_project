@@ -1,63 +1,56 @@
-<?php
-
-/**
- * Footer Template with Widgets
- */
-?>
 <footer id="footer">
     <div class="container">
         <div class="row top">
             <div class="col-xs-12 col-sm-6 col-md-4">
-                <h4><?php echo esc_html__('Kort om oss', 'your-theme'); ?></h4>
+                <h4><?php echo 'Kort om oss'; ?></h4>
+                <div>
+                    <p>
+                        <?php echo 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales mauris. Aliquam felis est, efficitur vel fringilla quis, vehicula quis ex.'; ?>
+                    </p>
+                    <p>
+                        <?php echo 'Phasellus tristique nunc in leo faucibus, a consequat nulla sagittis.'; ?>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
+                <h4><?php echo 'Kontaktuppgifter'; ?></h4>
+                <div>
+                    <p><strong><?php echo 'The Company'; ?></strong></p>
+                    <p><?php echo 'Gatgatan 1'; ?></p>
+                    <p><?php echo '123 45 Någonstans'; ?></p>
+                    <p><?php echo 'Tel: 0123456789'; ?></p>
+                    <p><?php echo 'E-post: '; ?><a href="mailto:info@thecompany.com"><?php echo 'info@thecompany.com'; ?></a></p>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
+                <h4>Social media</h4>
                 <div>
                     <?php
-                    $undersida_page = get_page_by_path('Undersida');
+                    wp_nav_menu(array(
+                        'theme_location' => 'social',
+                        'container' => false,
+                        'menu_class' => 'social',
+                        'depth' => 1,
+                        'walker' => new class extends Walker_Nav_Menu {
+                            function start_el(&$output, $item, $depth = 0, $args = null, $id = 0)
+                            {
+                                $icon_class = 'fa ' . $item->attr_title;
+                                $output .= '<li class="' . implode(' ', $item->classes) . '"><i class="' . $icon_class . '"></i> <a href="' . $item->url . '">' . $item->title . '</a></li>';
+                            }
+                        },
 
-                    if ($undersida_page) {
-                        $content = apply_filters('the_content', $undersida_page->post_content);
-                        $excerpt = wp_trim_words($content, 32, '');
-                        $excerpt = str_replace('ex.', 'ex.<br/>', $excerpt);
-                        echo '<p>' . wp_kses_post($excerpt) . '</p>';
-                    }
+                    ));
                     ?>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
-                <h4><?php echo esc_html__('Kontaktuppgifter', 'your-theme'); ?></h4>
-                <div>
-                    <?php if (is_active_sidebar('footer-contact')) : ?>
-                        <?php dynamic_sidebar('footer-contact'); ?>
-                    <?php else: ?>
-                        <p><?php echo esc_html__('The Company', 'your-theme'); ?><br />
-                            <?php echo esc_html__('Gatgatan 1', 'your-theme'); ?><br />
-                            <?php echo esc_html__('123 45 Någonstans', 'your-theme'); ?></p>
-                        <p><?php echo esc_html__('Tel: 0123456789', 'your-theme'); ?><br />
-                            <?php echo esc_html__('E-post: ', 'your-theme'); ?><a href="mailto:info@thecompany.com">info@thecompany.com</a></p>
-                    <?php endif; ?>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
-                <h4><?php echo esc_html__('Social media', 'your-theme'); ?></h4>
-                <div>
-                    <?php if (is_active_sidebar('footer-social')) : ?>
-                        <?php dynamic_sidebar('footer-social'); ?>
-                    <?php else: ?>
-                        <ul class="social">
-                            <li><i class="fa fa-facebook"></i> <a href="#">Facebook</a></li>
-                            <li><i class="fa fa-twitter"></i> <a href="#">Twitter</a></li>
-                            <li><i class="fa fa-instagram"></i> <a href="#">Instagram</a></li>
-                            <li><i class="fa fa-linkedin"></i> <a href="#">LinkedIn</a></li>
-                        </ul>
-                    <?php endif; ?>
+            <!-- Footer Copyright -->
+            <div class="row bottom">
+                <div class="col-xs-12">
+                    <p>Copyright &copy; <?php echo date('Y'); ?> <?php echo esc_html__('Grupp X', 'your-theme'); ?></p>
                 </div>
             </div>
         </div>
-        <div class="row bottom">
-            <div class="col-xs-12">
-                <p>Copyright &copy; <?php echo date('Y'); ?> <?php echo esc_html__('Grupp X', 'your-theme'); ?></p>
-            </div>
-        </div>
-    </div>
 </footer>

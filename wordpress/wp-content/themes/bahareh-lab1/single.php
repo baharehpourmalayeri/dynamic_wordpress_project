@@ -30,8 +30,7 @@
                                                 <i class="fa fa-calendar"></i><?php echo the_date() ?>
                                             </li>
                                             <li>
-                                                <i class="fa fa-user"></i> <a href="forfattare.html" title="Inlägg av Anders Andersson"
-                                                    rel="author"><?php the_author() ?></a></a>
+                                                <i class="fa fa-user"></i> <?php echo get_the_author_posts_link() ?>
                                             </li>
                                             <li>
                                                 <i class="fa fa-tag"></i><?php echo the_category(', ') ?>
@@ -47,9 +46,11 @@
                             <?php endif;
                             ?>
                         </div>
+                        <?php get_sidebar(); ?>
                     </div>
                 </div>
             </section>
+
         </main>
 
         <?php get_footer() ?>

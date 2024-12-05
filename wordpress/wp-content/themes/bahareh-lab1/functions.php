@@ -21,6 +21,7 @@ function register_my_menus()
         'header-menu' => 'Header Menu',
         'footer-menu' => 'Footer Menu',
         'sidebar' => 'Sidebar Menu',
+        'social' => 'Social Media Menu'
     ]);
 }
 add_action('init', 'register_my_menus');
@@ -67,6 +68,3 @@ function mytheme_register_sidebars()
 
 add_action('widgets_init', 'mytheme_register_sidebars');
 
-register_nav_menus([
-
-  ]);

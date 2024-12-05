@@ -17,7 +17,7 @@
 				<div class="container">
 					<div class="row">
 						<div id="primary" class="col-xs-12 col-md-9">
-							<h1>Blogg </h1>
+							<h1>Kategori: <?php single_cat_title() ?> </h1>
 							<?php
 							if (have_posts()) :
 								while (have_posts()) : the_post(); ?>
