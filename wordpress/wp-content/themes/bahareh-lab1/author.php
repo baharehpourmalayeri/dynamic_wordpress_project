@@ -46,12 +46,13 @@
 								<p>Inget innehåll hittades på denna sida.</p>
 							<?php endif;
 							?>
-							<nav class="navigation pagination" aria-label="Sidonumrering för inlägg">
-								<h2 class="screen-reader-text">Sidonumrering för inlägg</h2>
-								<span aria-current="page" class="page-numbers current">1</span>
-								<a class="page-numbers" href="">2</a>
-								<a class="next page-numbers" href="">Nästa</a>
-							</nav>
+							<?php echo get_the_posts_pagination([
+								'class'						 	 => 'pagination ',
+								'screen_reader_text' => 'Sidonumrering för inlägg',
+								'mid_size'           => 2,
+								'prev_text'          => __('Förre'),
+								'next_text'          => __('Nästa')
+							]) ?>
 						</div>
 						<?php get_sidebar(); ?>
 					</div>

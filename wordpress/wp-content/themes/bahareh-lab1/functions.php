@@ -32,35 +32,18 @@ function load_theme_styles()
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/css/font-awesome.css');
     wp_enqueue_style('main', get_template_directory_uri() . '/css/style.css');
-    wp_enqueue_script('main-js', get_template_directory_uri() . '/js/script.js', [], false, true); // Load JS in the footer
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery.js', [], false, true);
+    wp_enqueue_script('main-js', get_template_directory_uri() . '/js/script.js', [], false, true);
 }
 add_action('wp_enqueue_scripts', 'load_theme_styles');
 
 function mytheme_register_sidebars()
 {
-
-    $footers = [
-        'footer-about' => 'Footer Om oss',
-        'footer-contact' => 'Footer Kontakt',
-        'footer-social' => 'Footer Social Media',
-    ];
-
-    foreach ($footers as $id => $name) {
-        register_sidebar([
-            'name'          => $name,
-            'id'            => $id,
-            'before_widget' => "<div class='footer-widget-$id'>",
-            'after_widget'  => '</div>',
-            'before_title'  => '<h4>',
-            'after_title'   => '</h4>',
-        ]);
-    }
-
     register_sidebar([
-        'name'          => __('Main Sidebar', 'your-theme'),
+        'name'          => 'Main Sidebar',
         'id'            => 'main-sidebar',
-        'before_widget' => '<div class="widget %2$s">',
-        'after_widget'  => '</div>',
+        'before_widget' => '',
+        'after_widget'  => '',
         'before_title'  => '<h4 class="widget-title">',
         'after_title'   => '</h4>',
     ]);
@@ -96,3 +79,13 @@ function my_theme_widgets_init()
     ));
 }
 add_action('widgets_init', 'my_theme_widgets_init');
+
+function my_custom_navigation_template($template, $class)
+{
+    return '
+    <nav class="navigation %1$s" aria-label="%4$s">
+		<h2 class="screen-reader-text">%2$s</h2>
+		%3$s
+	</nav>';
+}
+add_filter('navigation_markup_template', 'my_custom_navigation_template', 10, 2);

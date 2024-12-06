@@ -8,15 +8,11 @@
     </ul>
     <ul role="navigation">
       <li id="pages-2" class="widget widget_pages">
-        <h2 class="widgettitle">Sidor</h2>
-          <?php
-          wp_nav_menu([
-            'theme_location' => 'sidebar',
-            'container' => false,
-            'menu_id' => 'pages-2',
-            'menu_class' => 'widget widget_pages',
-          ]);
-          ?>
+        <?php
+        if (is_active_sidebar('main-sidebar')) {
+          dynamic_sidebar('main-sidebar');
+        }
+        ?>
       </li>
       <li id="archives-2" class="widget widget_archive">
         <h2 class="widgettitle">Arkiv</h2>
